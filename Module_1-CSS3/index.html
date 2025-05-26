@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact">Help</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Welcome Banner -->
+    <section id="home">
+      <div id="welcomeBanner">
+        <h2>Welcome, Resident!</h2>
+        <p>Thanks for visiting your Local Community Portal. 
+        <span style="color:red; font-weight:bold;">Special Offer:</span> Enjoy a free event this weekend!</p>
+        <p class="highlight">Don't miss our next big event: The Community Talent Show!</p>
+      </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="events">
+      <h2>Community Events Gallery</h2>
+      <table>
+        <caption>Highlights from Past Events</caption>
+        <tr>
+          <td><img src="https://tse2.mm.bing.net/th?id=OIP.iCeV66bC53G-46tXL9lg5gHaE7&pid=Api&P=0&h=180" alt="Music Festival" title="Music Festival" class="gallery-img" ondblclick="enlarge(this)"></td>
+          <td><img src="https://tse1.mm.bing.net/th?id=OIP.2R4fL7yHjrrfGxjPj47xwAHaE0&pid=Api&P=0&h=180" alt="Art Fair" title="Art Fair" class="gallery-img" ondblclick="enlarge(this)"></td>
+          <td><img src="https://tse4.mm.bing.net/th?id=OIP.tYY_dEMhqk1Ge6v3zmkKcAHaFj&pid=Api&P=0&h=180" alt="Food Carnival" title="Food Carnival" class="gallery-img" ondblclick="enlarge(this)"></td>
+        </tr>
+        <tr>
+          <td><img src="https://tse3.mm.bing.net/th?id=OIP.wEwTF6KD1drzsNV9K0NuBwHaDo&pid=Api&P=0&h=180" alt="Sports Day" title="Sports Day" class="gallery-img" ondblclick="enlarge(this)"></td>
+          <td><img src="https://tse2.mm.bing.net/th?id=OIP.gufwqRjp93_b9crF1hHOIwHaFi&pid=Api&P=0&h=180" alt="Book Fair" title="Book Fair" class="gallery-img" ondblclick="enlarge(this)"></td>
+          <td><img src="https://tse1.mm.bing.net/th?id=OIP.d-fz1_EUiYxvUMgRhsldEwHaE7&pid=Api&P=0&h=180" alt="Dance Fest" title="Dance Fest" class="gallery-img" ondblclick="enlarge(this)"></td>
+        </tr>
+      </table>
+
+      <!-- Event Registration Form -->
+      <h3>Register for an Upcoming Event</h3>
+      <form id="eventForm" onsubmit="confirmSubmission(event)">
+        <label>Name:
+          <input type="text" name="name" placeholder="Your Name" required autofocus>
+        </label>
+        <label>Email:
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <label>Phone Number:
+          <input type="text" name="phone" id="phone" placeholder="10-digit number" onblur="validatePhone(this)">
+        </label>
+        <label>Date of Event:
+          <input type="date" name="date" required>
+        </label>
+        <label>Event Type:
+          <select id="eventType" onchange="showFee(this)">
+            <option value="">--Select--</option>
+            <option value="music">Music Fest</option>
+            <option value="art">Art Expo</option>
+            <option value="sports">Sports Meet</option>
+          </select>
+        </label>
+        <label>Message / Preferences:
+          <textarea id="feedback" rows="4" cols="30" onkeyup="countCharacters(this)"></textarea>
+        </label>
+        <p>Characters typed: <span id="charCount">0</span></p>
+        <button type="submit" onclick="showConfirmation()">Submit</button>
+        <output id="formResult"></output>
+      </form>
+
+      <!-- Video Invite -->
+      <h3>Watch Our Event Invite!</h3>
+      <video controls oncanplay="document.getElementById('videoMsg').textContent='Video ready to play!'">
+        <source src="https://videos.pexels.com/video-files/1692701/1692701-sd_640_360_30fps.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <p id="videoMsg"></p>
+    </section>
+
+    <!-- Preferences and Geolocation -->
+    <h3>Your Preferences</h3>
+    <button onclick="savePreference()">Save Event Type</button>
+    <button onclick="clearPreferences()">Clear Preferences</button>
+
+    <h3>Find Nearby Events</h3>
+    <button onclick="findLocation()">Find Nearby Events</button>
+    <p id="locationResult"></p>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+  <p>&copy; 2025 Local Community Council</p>
+  <p>Contact us at: <a href="mailto:events@cityportal.com" style="color: #00cccc;">events@cityportal.com</a></p>
+  <p>Phone: +1 (555) 123-4567</p>
+  <p>Address: 123 Civic Center, Main Street, YourCity</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function validatePhone(input) {
+      const pattern = /^[0-9]{10}$/;
+      if (!pattern.test(input.value)) {
+        alert("Enter a valid 10-digit phone number.");
+        input.focus();
+      }
+    }
+
+    function showFee(select) {
+      if (select.value) {
+        alert("Event Fee: ₹" + (select.value === "sports" ? 100 : 50));
+      }
+    }
+
+    function countCharacters(textarea) {
+      document.getElementById("charCount").textContent = textarea.value.length;
+    }
+
+    function showConfirmation() {
+      alert("Thank you! Your registration is being processed.");
+    }
+
+    function confirmSubmission(e) {
+      e.preventDefault();
+      document.getElementById("formResult").textContent = "Successfully Registered!";
+    }
+
+    function enlarge(img) {
+      img.style.width = "250px";
+    }
+
+    function savePreference() {
+      const type = document.getElementById("eventType").value;
+      if (type) {
+        localStorage.setItem("preferredEvent", type);
+        alert("Event type saved!");
+      }
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("Preferences cleared.");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem("preferredEvent");
+      if (saved) document.getElementById("eventType").value = saved;
+    };
+
+    function findLocation() {
+      if (!navigator.geolocation) {
+        document.getElementById("locationResult").textContent = "Geolocation is not supported.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          document.getElementById("locationResult").textContent =
+            `Latitude: ${pos.coords.latitude}, Longitude: ${pos.coords.longitude}`;
+        },
+        err => {
+          document.getElementById("locationResult").textContent = "Could not retrieve location.";
+        },
+        { enableHighAccuracy: true, timeout: 5000 }
+      );
+    }
+
+    window.onbeforeunload = function () {
+      if (document.getElementById("feedback").value !== "") {
+        return "You have unsaved feedback. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>

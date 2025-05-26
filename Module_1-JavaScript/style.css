@@ -1,0 +1,373 @@
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header, nav, main, footer {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #008080;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #welcomeBanner {
+      background-color: #e0f7f7;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .highlight {
+      background-color: #ffff99;
+      font-weight: bold;
+      padding: 2px 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    caption {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    .gallery-img {
+      border: 3px solid #555;
+      width: 150px;
+      height: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.1);
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #008080;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #006666;
+    }
+
+    output {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+      color: green;
+    }
+
+    video {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border: 3px solid #ccc;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #e0f7f7;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      margin-top: 40px;
+    }
+
+    /* ===========================
+   1. CSS Inclusion Methods
+   (This file is external stylesheet - styles.css)
+   =========================== */
+
+/* ===========================
+   2. CSS Syntax and Comments
+   =========================== */
+
+/* Reset margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   3. Selectors Playground
+   =========================== */
+
+/* Element selector: style all h2 headings */
+h2 {
+  color: #004d4d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1rem;
+}
+
+/* ID selector: main banner header */
+#mainHeader {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #006666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Class selector: event containers */
+.eventCard {
+  background-color: #e0f7f7;
+  border: 1px solid #008080;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px rgba(0, 128, 128, 0.2);
+}
+
+/* Grouping selector: h3 and p */
+h3, p {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===========================
+   4. Color & Background Styling
+   =========================== */
+
+/* Body background with fallback color and background image */
+body {
+  background-color: #f0f8f8; /* fallback */
+  background-image: url('images/city-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgba(0, 51, 51, 0.9);
+  font-size: 16px;
+}
+
+/* Gradient backgrounds for section headers */
+section > h2 {
+  background: linear-gradient(90deg, #004d4d, #009999);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* ===========================
+   5. Typography: Fonts and Text
+   =========================== */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#welcomeBanner {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Description text style */
+.description {
+  text-align: justify;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+  font-style: normal;
+}
+
+/* ===========================
+   6. Link and List Styling
+   =========================== */
+
+/* Nav menu list */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+  padding: 5px 0;
+}
+
+/* Link styles */
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #005050;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+/* Remove bullet points from nav menus */
+nav ul {
+  list-style: none;
+}
+
+/* ===========================
+   7. Table Styling
+   =========================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+th, td {
+  border: 1px solid #008080;
+  padding: 10px;
+}
+
+th {
+  background-color: rgba(0, 128, 128, 0.8);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
+/* ===========================
+   8. Box Model & Layout Control
+   =========================== */
+
+/* Event card box model */
+.eventCard {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid #008080;
+  border-radius: 8px;
+}
+
+/* Form input focus outline */
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid #008080;
+  outline-offset: 2px;
+}
+
+/* Visibility examples (for testing) */
+/* .hidden { visibility: hidden; } */
+/* .none { display: none; } */
+
+/* ===========================
+   9. Multiple Columns in Text
+   =========================== */
+
+.newsArticle {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   10. Responsive Web Design with Media Queries
+   =========================== */
+
+@media (max-width: 768px) {
+  /* Stack nav links vertically */
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Reduce image sizes */
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Reduce font sizes */
+  body {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  #mainHeader {
+    font-size: 2rem;
+  }
+}
+
+/* ===========================
+   11. Debug and Test with Dev Tools and VS Code
+   =========================== */
+
+/* Add styles here as needed during debugging/testing */
