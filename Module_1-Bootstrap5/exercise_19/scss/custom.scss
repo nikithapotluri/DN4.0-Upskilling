@@ -1,0 +1,8 @@
+// scss/custom.scss
+
+// Override Bootstrap variables BEFORE importing bootstrap
+$primary: #1a73e8; // Custom blue (you can pick any hex)
+$border-radius: 1.5rem; // Custom rounded corners
+
+// Import Bootstrap source Sass
+@import "../node_modules/bootstrap/scss/bootstrap";
